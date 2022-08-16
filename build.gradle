@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.1.4'
+    testImplementation group: 'junit', name: 'junit', version: '4.4'
+    implementation group: 'org.json', name: 'json', version: '20090211'
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+
+
+}
+
+
+
+test {
+    description = "Runs JUnit 4, JUnit Jupiter, and TestNG tests."
+
+    //exclude all tests from a package.
+    filter {
+
+        //exclude all tests from a package.
+        excludeTestsMatching "src.test.java.features.*"
+
+    }
+
+//        include(["**/*Tests.class", "**/*Test.class","features/AddCustomerTests.java","///Users/mac/Documents/dev/framework/Demo/src/test/java/features/AddCustomerTests.java"])
+//        filter.excludeTestsMatching("*TestCase")
+//        systemProperty("testGroups", project.properties.get("testGroups"))
+}
